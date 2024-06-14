@@ -2,118 +2,64 @@
 
 @section('styles')
     <style>
-        html,
-        body {
-            height: 100%;
-            width: 100%;
+        .landing-space {
+            height: calc(100vh - 76px);
+            background: url('{{ asset('https://ts2.mm.bing.net/th?q=rumah%20sakit%20terbesar%20di%20jogja') }}') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            flex-direction: column;
+            padding: 0 20px;
         }
 
-        #map {
-            height: calc(100vh - 56px);
-            width: 100%;
-            margin: 0;
+        .landing-space h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .landing-space p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .login-button {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.25rem;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-button:hover {
+            background-color: #0056b3;
         }
     </style>
 @endsection
 
-
-
 @section('content')
-    <div id="map" style="width: 100vw; height: 100vh; margin: 0"></div>
-
-
+    <div class="landing-space">
+        <div>
+            <h1>WebGIS Persebaran Fasilitas Kesehatan Kota Yogyakarta</h1>
+            <p>Kesehatan Anda Kebahagiaan Kami</p>
+            @if (!Auth::check())
+                <a href="{{ route('login') }}" class="login-button">Login</a>
+            @else
+                <a href="{{ route('dashboard') }}" class="login-button">Go to Dashboard</a>
+            @endif
+        </div>
+    </div>
 @endsection
 
-
-
 @section('script')
-
     <script>
-        // Map
-        var map = L.map('map').setView([-7.7956, 110.3695], 13);
-
-        //Basemap
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-
-
- /* GeoJSON Point */
- var point = L.geoJson(null, {
-            onEachFeature: function(feature, layer) {
-                var popupContent = "Nama: " + feature.properties.name + "<br>" +
-                    "Deskripsi: " + feature.properties.description + "<br>" +
-                    "Foto: <img src='{{ asset('storage/images/') }}/" + feature.properties.image + "'class='img-thumbnail' alt='...'>"
-                    ;
-
-                layer.on({
-                    click: function(e) {
-                        point.bindPopup(popupContent);
-                    },
-                    mouseover: function(e) {
-                        point.bindTooltip(feature.properties.name);
-                    },
-                });
-            },
-        });
-        $.getJSON("{{ route('api.points') }}", function(data) {
-            point.addData(data);
-            map.addLayer(point);
-        });
-
-        /* GeoJSON Polyline */
-        var polyline = L.geoJson(null, {
-            onEachFeature: function(feature, layer) {
-                var popupContent = "Nama: " + feature.properties.name + "<br>" +
-                    "Deskripsi: " + feature.properties.description + "<br>" +
-                    "Foto: <img src='{{ asset('storage/images/') }}/" + feature.properties.image + "'class='img-thumbnail' alt='...'>"
-                    ;
-                layer.on({
-                    click: function(e) {
-                        polyline.bindPopup(popupContent);
-                    },
-                    mouseover: function(e) {
-                        polyline.bindTooltip(feature.properties.name);
-                    },
-                });
-            },
-        });
-        $.getJSON("{{ route('api.polylines') }}", function(data) {
-            polyline.addData(data);
-            map.addLayer(polyline);
-        });
-
-        /* GeoJSON polygon */
-        var polygon = L.geoJson(null, {
-            onEachFeature: function(feature, layer) {
-                var popupContent = "Nama: " + feature.properties.name + "<br>" +
-                    "Deskripsi: " + feature.properties.description + "<br>" +
-                    "Foto: <img src='{{ asset('storage/images/') }}/" + feature.properties.image + "'class='img-thumbnail' alt='...'>"
-                    ;
-                layer.on({
-                    click: function(e) {
-                        polygon.bindPopup(popupContent);
-                    },
-                    mouseover: function(e) {
-                        polygon.bindTooltip(feature.properties.name);
-                    },
-                });
-            },
-        });
-        $.getJSON("{{ route('api.polygons') }}", function(data) {
-            polygon.addData(data);
-            map.addLayer(polygon);
-        });
-
-        //layer control
-        var overlayMaps = {
-            "Point": point,
-            "Polyline": polyline,
-            "Polygon": polygon
-        };
-
-        var layerControl = L.control.layers(null, overlayMaps, {collapsed: false}).addTo(map);
-
+        // Any additional scripts can go here
+        console.log("Landing space script loaded.");
     </script>
 @endsection

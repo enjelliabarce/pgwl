@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\PointController;
 use App\Http\Controllers\PolygonController;
 use App\Http\Controllers\PolylineController;
@@ -33,3 +34,6 @@ Route::get('/polyline/{id}', [PolylineController::class, 'show'])->name('api.pol
 //GeoJSON Polygons
 Route::get('/polygons', [PolygonController::class, 'index'])->name('api.polygons');
 Route::get('/polygon/{id}', [PolygonController::class, 'show'])->name('api.polygon');
+
+Route::get('/api/pendidikan', [ApiController::class, 'fetchData'])->name('api.pendidikan');
+

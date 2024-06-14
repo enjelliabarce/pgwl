@@ -1,34 +1,54 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="header-title">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Dashboard') }}
-            </h2>
+        <div class="header-title text-center bg-primary text-white py-4 rounded">
+            <h2 class="font-semibold text-xl">{{ __('Dashboard') }}</h2>
         </div>
     </x-slot>
 
     <div class="container mt-4 mb-4">
-        <div class="description-section p-4">
-            <img src="https://images.tokopedia.net/img/KRMmCm/2022/6/16/56b7b2bc-aeab-4fe9-bb3b-b97ce6ccef67.jpg" alt="Yogyakarta">
-            <h3 class="description-title"><strong>Yogyakarta Kota Pelajar</strong></h3>
-            <p class="description-text">
-                Yogyakarta juga dikenal sebagai Kota Pelajar julukan ini diduga berasal dari banyaknya pusat-pusat pendidikan yang berdiri di Yogyakarta. Pusat-pusat pendidikan itu secara otomatis menarik minat para pelajar dari daerah lain untuk menuntut ilmu di kota ini. Universitas terkemuka yang terdapat di kota ini yaitu Universitas Gadjah Mada. Hal inilah yang membuat kota Yogyakarta memiliki jumlah pelajar yang besar, yang berasal tidak hanya dari area Jawa tetapi juga dari luar Jawa bahkan dari luar Indonesia. Yogyakarta juga menawarkan beragam tempat makan, kafe, dan pusat perbelanjaan yang cocok untuk gaya hidup mahasiswa. Harga yang terjangkau dan keanekaragaman kuliner membuat kota ini menarik bagi mahasiswa dari berbagai latar belakang.
-            </p>
+        <!-- Deskripsi Fasilitas Kesehatan -->
+        <div class="row">
+            <div class="col-md-6 description-section p-4">
+                <h3 class="description-title"><strong>Fasilitas Kesehatan</strong></h3>
+                <p class="description-text">
+                    Fasilitas kesehatan mencakup berbagai jenis tempat yang menyediakan perawatan medis kepada masyarakat, termasuk rumah sakit yang menawarkan layanan medis lengkap dengan rawat inap dan bedah, klinik yang memberikan perawatan kesehatan dasar, serta puskesmas yang berfungsi sebagai pusat pelayanan kesehatan masyarakat. Fasilitas ini juga mencakup apotek untuk penjualan obat-obatan, laboratorium medis untuk tes diagnostik, dan fasilitas rehabilitasi untuk pemulihan pasien. Panti jompo dan perawatan lanjut usia menyediakan perawatan khusus bagi lansia. Semua fasilitas ini bekerja bersama dalam sistem perawatan kesehatan untuk mendukung kesehatan dan kesejahteraan masyarakat.
+                </p>
+            </div>
+
+            <div class="col-md-6 description-section p-4">
+                <img src="https://storage.googleapis.com/seo-cms/assets/rsup_dr_sardjito_9dcd9ec13b/rsup_dr_sardjito_9dcd9ec13b.jpg" alt="Fasilitas Kesehatan" class="img-fluid rounded">
+            </div>
         </div>
 
-        <div class="card shadow">
-            <div class="card-header">
+        <!-- Gambar Menjaga Kesehatan -->
+        <div class="row mt-4">
+            <div class="col-md-6 description-section p-4">
+                <h3 class="description-title"><strong>Menjaga Kesehatan dan Kebersihan</strong></h3>
+                <p class="description-text">
+                    Menjaga kesehatan dan kebersihan sangat penting untuk mencegah penyakit dan menjaga kualitas hidup. Gaya hidup sehat, kebersihan yang baik, dan aktivitas fisik yang teratur adalah kunci untuk hidup yang panjang dan sehat.
+                </p>
+            </div>
+
+            <div class="col-md-6 description-section p-4">
+                <img src="https://kratonpusk.jogjakota.go.id/assets/instansi/kratonpusk/gallery/20201112095928_WhatsApp_Image_2020-11-12_at_09.54_.30_.jpeg"
+                     alt="Menjaga Kesehatan"
+                     class="img-fluid rounded img-thumbnail"
+                     style="max-width: 50%; height: auto;">
+            </div>
+        <!-- Data Fasilitas Kesehatan -->
+        <div class="card shadow mt-4">
+            <div class="card-header bg-primary text-white">
                 <h3 class="card-title">Data</h3>
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4 mb-4">
                         <div class="alert alert-primary text-center" role="alert">
-                            <h4><i class="fa-solid fa-location-dot"></i> Total Points</h4>
+                            <h4><i class="fa-solid fa-location-dot"></i> Jumlah Sebaran Rumah Sakit</h4>
                             <p style="font-size: 32pt">{{ $total_points }}</p>
                         </div>
                     </div>
-                    <div class="col-md-4 mb-4">
+                    {{-- <div class="col-md-4 mb-4">
                         <div class="alert alert-primary text-center" role="alert">
                             <h4><i class="fa-solid fa-route"></i> Total Polylines</h4>
                             <p style="font-size: 32pt">{{ $total_polylines }}</p>
@@ -39,7 +59,7 @@
                             <h4><i class="fa-solid fa-draw-polygon"></i> Total Polygons</h4>
                             <p style="font-size: 32pt">{{ $total_polygons }}</p>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -75,13 +95,6 @@
         p {
             margin: 0;
         }
-        .header-title {
-            background-color: #4a90e2;
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
         .description-section {
             background: white;
             border-radius: 10px;
@@ -89,17 +102,15 @@
             margin-bottom: 30px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        .description-section img {
+        .img-fluid {
             max-width: 100%;
+            height: auto;
+        }
+        .header-title {
+            background-color: #4a90e2;
+            color: white;
+            padding: 20px;
             border-radius: 10px;
-            margin-bottom: 20px;
-        }
-        .description-title {
-            font-size: 2rem; /* Increase the size of the title */
-            margin-bottom: 20px; /* Add space between the title and the description */
-        }
-        .description-text {
-            margin-top: 20px;
         }
     </style>
 
@@ -108,10 +119,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <!-- FOOTER -->
-  <footer class="container">
-    <p class="float-end"><a href="#">Back to top</a></p>
-    <p>&copy; Enjellia Barce_22/498941/SV/21277. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-  </footer>
-</main>
-<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <footer class="container">
+        <p class="float-end"><a href="#">Back to top</a></p>
+        <p>&copy; Enjellia Barce_22/498941/SV/21277. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
 </x-app-layout>

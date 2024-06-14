@@ -46,8 +46,8 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href=" {{ route('table-point') }}">Tabel Point</a></li>
-                            <li><a class="dropdown-item" href=" {{ route('table-polyline') }}">Tabel Polyline</a></li>
-                            <li><a class="dropdown-item" href=" {{ route('table-polygon') }}">Tabel polygon</a></li>
+                            {{-- <li><a class="dropdown-item" href=" {{ route('table-polyline') }}">Tabel Polyline</a></li>
+                            <li><a class="dropdown-item" href=" {{ route('table-polygon') }}">Tabel polygon</a></li> --}}
                         </ul>
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#infoModal"><i class="fa-solid fa-circle-info"></i>Info</a>
@@ -59,18 +59,18 @@
                                     class="fa-solid fa-circle-info"></i>Dashboard</a>
                         </li>
 
-                        <form method="POST" action="{{ route('logout') }}">
+                        {{-- <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <li class="nav-item">
                                 <button class="nav-link" type="submit"><i
                                         class="fa-solid fa-right-to-bracket"></i>Logout</a>
                             </li>
-                        </form>
+                        </form> --}}
                     @else
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}"><i
                                     class="fa-solid fa-right-to-bracket"></i>Login</a>
-                        </li>
+                        </li> --}}
                     @endif
 
 

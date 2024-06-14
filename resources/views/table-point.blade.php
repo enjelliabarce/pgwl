@@ -11,8 +11,8 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Name</th>
-                        <th>Description</th>
+                        <th>Rumah Sakit </th>
+                        <th>Fasilitas dan Pelayanan</th>
                         <th>Coordinate</th>
                         <th>Image</th>
                         <th>Created at</th>

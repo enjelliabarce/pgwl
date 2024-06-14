@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MapController;
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\PointController;
 use App\Http\Controllers\PolylineController;
 use App\Http\Controllers\PolygonController;
@@ -50,6 +51,7 @@ Route::delete('/delete-polygon/{id}',[PolygonController::class, 'destroy'])->nam
 Route::get('/edit-polygon/{id}',[PolygonController::class, 'edit'])->name('edit-polygon');
 //Update Polygon
 Route::patch('/update-polygon/{id}',[PolygonController::class, 'update'])->name('update-polygon');
+Route::get('/api/pendidikan', [ApiController::class, 'fetchData'])->name('api.pendidikan');
 
 
 

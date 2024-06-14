@@ -34,11 +34,11 @@
         <form action="{{ route('store-point')}}" method="POST" enctype="multipart/form-data">
           @csrf
           <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
+            <label for="name" class="form-label">Rumah Sakit</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Fill Point Name">
           </div>
           <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
+            <label for="description" class="form-label">Fasilitas dan Pelayanan</label>
             <textarea class="form-control" id="description" name="description" rows="3"></textarea>
           </div>
           <div class="mb-3">
@@ -202,8 +202,8 @@ function getRandomColor() {
         /* GeoJSON polygon */
         var polygon = L.geoJson(null, {
             onEachFeature: function(feature, layer) {
-                var popupContent = "Nama: " + feature.properties.name + "<br>" +
-                    "Deskripsi: " + feature.properties.description + "<br>" +
+                var popupContent = "Rumah Sakit: " + feature.properties.name + "<br>" +
+                    "Fasilitas dan Pelayanan: " + feature.properties.description + "<br>" +
                     "Foto: <img src='{{ asset('storage/images/') }}/" + feature
                     .properties.image +
                     "'class='img-thumbnail' alt='...'>" + "<br>" +
@@ -366,9 +366,7 @@ function getRandomColor() {
 
                 "</form>"
 
-                "</div>"
-
-;
+                "</div>";
 
       layer.on({
         click: function (e) {
@@ -426,6 +424,25 @@ function getRandomColor() {
     map.addLayer(point);
     console.log(point)
   });
+//   var pendidikan = L.geoJson(null, {
+//             onEachFeature: function(feature, layer) {
+//                 var popupContent = "Nama: "  + "<br>" ;
+
+
+//                 layer.on({
+//                     click: function(e) {
+//                         pendidikan.bindPopup(popupContent);
+//                     },
+//                     mouseover: function(e) {
+//                         pendidikan.bindTooltip(feature.properties.name);
+//                     },
+//                 });
+//             },
+//         });
+//         $.getJSON("{{ route('api.pendidikan') }}", function(data) {
+//             pendidikan.addData(data);
+//             map.addLayer(pendidikan);
+//         });
   /* GeoJSON Polygons */
   var polygons = L.geoJson(null, {
     onEachFeature: function (feature, layer) {
